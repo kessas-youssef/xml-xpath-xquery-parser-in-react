@@ -29,7 +29,7 @@ function NavBar(props) {
     const [active, setActive] = useState({ btn: '', isActive: false });
     return (
         <nav className='navbar'>
-            <button id='operations' className='navbar__btn navbar__btn--operations' onClick={onClickHandler}>XPath & XQuery</button>
+            <button id='operations' className='navbar__btn navbar__btn--operations' onClick={onClickHandler}>XPath</button>
             <button id='xmlfile' className='navbar__btn navbar__btn--xml' onClick={onClickHandler}>XML File</button>
             <button id='dtdfile' className='navbar__btn navbar__btn--dtd' onClick={onClickHandler}>DTD File</button>
             <button id='xsdfile' className='navbar__btn navbar__btn--xsd' onClick={onClickHandler}>XML Schema File</button>
