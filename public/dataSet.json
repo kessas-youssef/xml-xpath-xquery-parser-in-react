@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "text": "Obtenir les noms des destinataires",
+        "query": "//Commande/Destinataire/Nom/text()"
+    },
+    {
+        "id": 2,
+        "text": "Obtenir le nombre de fois un client qui a un Nom=Merouane a fait des commandes",
+        "query": "count(//Commande/Destinataire[Nom=\"Merouane\"])"
+    },
+    {
+        "id": 3,
+        "text": "Obtenir les noms de Produit Plus Cher a 15000 DA",
+        "query": "//Produits/Produit[@Prix-Produit>15000]/@Nom-Produit"
+    },
+    {
+        "id": 4,
+        "text": "Obtenir le total des salaires en 1 mois",
+        "query": "sum(//Salaire)"
+    },
+    {
+        "id": 5,
+        "text": "Obtenir Le Prenom du client qui a fait la derniere Commande",
+        "query": "//Commande[position()=last()]/Destinataire/Prenom"
+    }
+]

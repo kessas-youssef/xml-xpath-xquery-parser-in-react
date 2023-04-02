@@ -1,0 +1,60 @@
+
+<!ELEMENT Livraison (Produits,Commande+,Perssone,Bon-Livraison+)>
+<!ELEMENT Produits (Produit+)>
+<!ELEMENT Produit (#PCDATA)>
+<!ATTLIST Produit Nom-Produit   CDATA #REQUIRED
+				  id-Produit    ID #REQUIRED
+				  Qte-Stocke    CDATA #REQUIRED
+				  Prix-Produit  CDATA #REQUIRED >
+
+<!ELEMENT Commande (Destinataire,Produits-Achete,DateDeCommande,Prix-Total)>
+<!ATTLIST Commande id-Commande ID  #REQUIRED >
+  
+
+<!ELEMENT Destinataire (Nom,Prenom,Tel,Pays,Wilaya,Address,Poste,Zip?)>
+<!ATTLIST Destinataire   id-Client   ID #REQUIRED>
+<!ELEMENT Nom (#PCDATA)>
+<!ELEMENT Prenom (#PCDATA)>
+<!ELEMENT Tel (#PCDATA)>
+<!ELEMENT Pays (#PCDATA)>
+<!ELEMENT Wilaya (#PCDATA)>
+<!ELEMENT Address (#PCDATA)>
+<!ELEMENT Poste (#PCDATA)>
+<!ELEMENT Zip (#PCDATA)>
+
+<!ELEMENT Produits-Achete (Quantite-Achete+)> 
+<!ELEMENT Quantite-Achete (#PCDATA)>
+<!ATTLIST Quantite-Achete id-Produit IDREF #REQUIRED>
+
+
+<!ELEMENT DateDeCommande (#PCDATA)>
+<!ELEMENT Prix-Total (#PCDATA)>
+
+<!ELEMENT Perssone (equipage,Clients+)>
+
+<!ELEMENT equipage (Gerant,Livreurs)>
+<!ELEMENT Gerant (Nom)>
+
+
+<!ELEMENT Livreurs (Ancien-Livreur+,Nouveau-Livreur+)>
+
+<!ELEMENT Ancien-Livreur (Nom,Prenom,Vehicule,Salaire)>
+<!ATTLIST Ancien-Livreur id-livreur  ID #REQUIRED>
+
+<!ELEMENT Nouveau-Livreur (Nom,Prenom,Vehicule,Salaire)>
+<!ATTLIST Nouveau-Livreur id-livreur  ID #REQUIRED>
+
+<!ELEMENT Salaire (#PCDATA)>
+<!ELEMENT Vehicule (#PCDATA)>
+
+<!ELEMENT Clients (Client+)>
+<!ELEMENT Client (Nom,Prenom,Tel,Pays,Wilaya,Address)>
+<!ATTLIST Client id-Client  IDREF #REQUIRED>
+
+<!ELEMENT Bon-Livraison (Payage+)>
+<!ATTLIST Bon-Livraison id-Client  IDREF #REQUIRED
+						NomClient  CDATA #REQUIRED
+						PrenomClient  CDATA #IMPLIED>
+
+<!ELEMENT Payage (#PCDATA)>
+<!ATTLIST Payage type  CDATA #REQUIRED>
