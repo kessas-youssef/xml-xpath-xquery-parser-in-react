@@ -30,7 +30,7 @@ function App() {
 
 
   const renderedSection = () => {
-    if (section == 'operations')
+    if (section == 'xpath')
       return <Operations xmlFile={xmlresponse} />;
     if (section == 'xmlfile')
       return <XmlFile xmlTextContent={xmlText} />;
@@ -44,7 +44,6 @@ function App() {
     <div className="App">
       <NavBar setSection={setSection} />
       {renderedSection()}
-
     </div>
   );
 }

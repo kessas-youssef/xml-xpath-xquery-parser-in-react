@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema  elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <xsd:element name="Livraison">
-        <xsd:complexType mixed="true">
+        <xsd:complexType >
             <xsd:sequence>
-                <xsd:element name="Produits" minOccurs="0">
-                    <xsd:complexType mixed="true">
+                <xsd:element name="Produits" maxOccurs="1">
+                    <xsd:complexType >
                         <xsd:sequence>
                             <xsd:element name="Produit" maxOccurs="unbounded">
                                 <xsd:complexType>
@@ -22,31 +22,32 @@
                     </xsd:complexType>
                 </xsd:element>
                 <xsd:element name="Commande" maxOccurs="unbounded">
-                    <xsd:complexType mixed="true">
+                    <xsd:complexType >
                         <xsd:sequence>
-                            <xsd:element name="Destinataire" minOccurs="0">
-                                <xsd:complexType mixed="true">
+                            <xsd:element name="Destinataire" maxOccurs="1">
+                                <xsd:complexType >
                                     <xsd:sequence>
-                                        <xsd:element name="Nom" minOccurs="0" type="xsd:normalizedString"/>
-                                        <xsd:element name="Prenom" minOccurs="0" type="xsd:normalizedString"/>
-                                        <xsd:element name="Tel" minOccurs="0" type="xsd:long"/>
-                                        <xsd:element name="Pays" minOccurs="0" type="xsd:normalizedString"/>
-                                        <xsd:element name="Wilaya" minOccurs="0" type="xsd:normalizedString"/>
-                                        <xsd:element name="Address" minOccurs="0" type="xsd:string"/>
-                                        <xsd:element name="Poste" minOccurs="0" type="xsd:string"/>
-                                        <xsd:element name="Zip" minOccurs="0" type="xsd:int"/>
+                                        <xsd:element name="Nom" maxOccurs="1" type="xsd:normalizedString"/>
+                                        <xsd:element name="Prenom" maxOccurs="1" type="xsd:normalizedString"/>
+                                        <xsd:element name="Tel" maxOccurs="1" type="xsd:long"/>
+                                        <xsd:element name="Pays" maxOccurs="1" type="xsd:normalizedString"/>
+                                        <xsd:element name="Wilaya" maxOccurs="1" type="xsd:normalizedString"/>
+                                        <xsd:element name="Address" maxOccurs="1" type="xsd:string"/>
+                                        <xsd:element name="Poste" maxOccurs="1" type="xsd:string"/>
+                                        <xsd:element name="Zip" maxOccurs="1" minOccurs="0" type="xsd:int"/>
                                     </xsd:sequence>
                                     <xsd:attribute name="id-Client" type="xsd:normalizedString" use="required"/>
                                 </xsd:complexType>
                             </xsd:element>
-                            <xsd:element name="Produits-Achete" minOccurs="0">
-                                <xsd:complexType mixed="true">
+                            <xsd:element name="Produits-Achete" maxOccurs="1">
+                                <xsd:complexType >
                                     <xsd:sequence>
                                         <xsd:element name="Quantite-Achete" maxOccurs="unbounded">
                                             <xsd:complexType>
                                                 <xsd:simpleContent>
                                                     <xsd:extension base="xsd:int">
                                                         <xsd:attribute name="id-Produit" type="xsd:normalizedString" use="required"/>
+                                                        <xsd:attribute name="Nom-Produit" type="xsd:normalizedString" use="optional"/>
                                                     </xsd:extension>
                                                 </xsd:simpleContent>
                                             </xsd:complexType>
@@ -54,46 +55,46 @@
                                     </xsd:sequence>
                                 </xsd:complexType>
                             </xsd:element>
-                            <xsd:element name="DateDeCommande" minOccurs="0" type="xsd:normalizedString"/>
-                            <xsd:element name="Prix-Total" minOccurs="0" type="xsd:string"/>
+                            <xsd:element name="DateDeCommande" maxOccurs="1" type="xsd:normalizedString"/>
+                            <xsd:element name="Prix-Total" maxOccurs="1" type="xsd:int"/>
                         </xsd:sequence>
                         <xsd:attribute name="id-Commande" type="xsd:normalizedString" use="required"/>
                     </xsd:complexType>
                 </xsd:element>
-                <xsd:element name="Perssone" minOccurs="0">
-                    <xsd:complexType mixed="true">
+                <xsd:element name="Perssone" maxOccurs="1">
+                    <xsd:complexType >
                         <xsd:sequence>
-                            <xsd:element name="equipage" minOccurs="0">
+                            <xsd:element name="equipage" maxOccurs="1">
                                 <xsd:complexType mixed="true">
                                     <xsd:sequence>
-                                        <xsd:element name="Gerant" minOccurs="0">
-                                            <xsd:complexType mixed="true">
+                                        <xsd:element name="Gerant" maxOccurs="1">
+                                            <xsd:complexType >
                                                 <xsd:sequence>
-                                                    <xsd:element name="Nom" minOccurs="0" type="xsd:string"/>
+                                                    <xsd:element name="Nom" maxOccurs="1" type="xsd:string"/>
                                                 </xsd:sequence>
                                             </xsd:complexType>
                                         </xsd:element>
-                                        <xsd:element name="Livreurs" minOccurs="0">
-                                            <xsd:complexType mixed="true">
+                                        <xsd:element name="Livreurs" maxOccurs="1">
+                                            <xsd:complexType >
                                                 <xsd:sequence>
-                                                    <xsd:element name="Ancien-Livreur" minOccurs="0">
+                                                    <xsd:element name="Ancien-Livreur" maxOccurs="unbounded">
                                                         <xsd:complexType mixed="true">
                                                             <xsd:sequence>
-                                                                <xsd:element name="Nom" minOccurs="0" type="xsd:normalizedString"/>
-                                                                <xsd:element name="Prenom" minOccurs="0" type="xsd:normalizedString"/>
-                                                                <xsd:element name="Vehicule" minOccurs="0" type="xsd:string"/>
-                                                                <xsd:element name="Salaire" minOccurs="0" type="xsd:int"/>
+                                                                <xsd:element name="Nom" maxOccurs="1" type="xsd:normalizedString"/>
+                                                                <xsd:element name="Prenom" maxOccurs="1" type="xsd:normalizedString"/>
+                                                                <xsd:element name="Vehicule" maxOccurs="1" type="xsd:string"/>
+                                                                <xsd:element name="Salaire" maxOccurs="1" type="xsd:int"/>
                                                             </xsd:sequence>
                                                             <xsd:attribute name="id-livreur" type="xsd:normalizedString" use="required"/>
                                                         </xsd:complexType>
                                                     </xsd:element>
-                                                    <xsd:element name="Nouveau-Livreur" minOccurs="0">
-                                                        <xsd:complexType mixed="true">
+                                                    <xsd:element name="Nouveau-Livreur" maxOccurs="unbounded">
+                                                        <xsd:complexType >
                                                             <xsd:sequence>
-                                                                <xsd:element name="Nom" minOccurs="0" type="xsd:normalizedString"/>
-                                                                <xsd:element name="Prenom" minOccurs="0" type="xsd:normalizedString"/>
-                                                                <xsd:element name="Vehicule" minOccurs="0" type="xsd:string"/>
-                                                                <xsd:element name="Salaire" minOccurs="0" type="xsd:int"/>
+                                                                <xsd:element name="Nom" maxOccurs="1" type="xsd:normalizedString"/>
+                                                                <xsd:element name="Prenom" maxOccurs="1" type="xsd:normalizedString"/>
+                                                                <xsd:element name="Vehicule" maxOccurs="1" type="xsd:string"/>
+                                                                <xsd:element name="Salaire" maxOccurs="1" type="xsd:int"/>
                                                             </xsd:sequence>
                                                             <xsd:attribute name="id-livreur" type="xsd:normalizedString" use="required"/>
                                                         </xsd:complexType>
@@ -104,18 +105,18 @@
                                     </xsd:sequence>
                                 </xsd:complexType>
                             </xsd:element>
-                            <xsd:element name="Clients" minOccurs="0">
-                                <xsd:complexType mixed="true">
+                            <xsd:element name="Clients" maxOccurs="1">
+                                <xsd:complexType >
                                     <xsd:sequence>
                                         <xsd:element name="Client" maxOccurs="unbounded">
-                                            <xsd:complexType mixed="true">
+                                            <xsd:complexType >
                                                 <xsd:sequence>
-                                                    <xsd:element name="Nom" minOccurs="0" type="xsd:normalizedString"/>
-                                                    <xsd:element name="Prenom" minOccurs="0" type="xsd:normalizedString"/>
-                                                    <xsd:element name="Tel" minOccurs="0" type="xsd:long"/>
-                                                    <xsd:element name="Pays" minOccurs="0" type="xsd:normalizedString"/>
-                                                    <xsd:element name="Wilaya" minOccurs="0" type="xsd:normalizedString"/>
-                                                    <xsd:element name="Address" minOccurs="0" type="xsd:string"/>
+                                                    <xsd:element name="Nom" maxOccurs="1" type="xsd:normalizedString"/>
+                                                    <xsd:element name="Prenom" maxOccurs="1" type="xsd:normalizedString"/>
+                                                    <xsd:element name="Tel" maxOccurs="1" type="xsd:long"/>
+                                                    <xsd:element name="Pays" maxOccurs="1" type="xsd:normalizedString"/>
+                                                    <xsd:element name="Wilaya" maxOccurs="1" type="xsd:normalizedString"/>
+                                                    <xsd:element name="Address" maxOccurs="1" type="xsd:string"/>
                                                 </xsd:sequence>
                                                 <xsd:attribute name="id-Client" type="xsd:normalizedString" use="required"/>
                                             </xsd:complexType>
@@ -127,9 +128,9 @@
                     </xsd:complexType>
                 </xsd:element>
                 <xsd:element name="Bon-Livraison" maxOccurs="unbounded">
-                    <xsd:complexType mixed="true">
+                    <xsd:complexType >
                         <xsd:sequence>
-                            <xsd:element name="Payage" minOccurs="0">
+                            <xsd:element name="Payage" maxOccurs="1">
                                 <xsd:complexType>
                                     <xsd:simpleContent>
                                         <xsd:extension base="xsd:string">
@@ -140,7 +141,7 @@
                             </xsd:element>
                         </xsd:sequence>
                         <xsd:attribute name="NomClient" type="xsd:normalizedString" use="required"/>
-                        <xsd:attribute name="PrenomClient" type="xsd:normalizedString"/>
+                        <xsd:attribute name="PrenomClient" type="xsd:normalizedString" use="optional"/>
                         <xsd:attribute name="id-Client" type="xsd:normalizedString" use="required"/>
                     </xsd:complexType>
                 </xsd:element>

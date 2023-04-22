@@ -23,5 +23,25 @@
         "id": 5,
         "text": "Obtenir Le Prenom du client qui a fait la derniere Commande",
         "query": "//Commande[position()=last()]/Destinataire/Prenom"
+    },
+    {
+        "id": 6,
+        "text": "Obtenir la qte achete du produit avec l'id P6 dans la 1ere commande",
+        "query": "//Commande[@id-Commande='COM1']/Produits-Achete/Quantite-Achete[@id-Produit='P6']/text()"
+    },
+    {
+        "id": 7,
+        "text": "Obtenir le prix des produits qui contient Carte",
+        "query": "//Produits/Produit[contains(@Nom-Produit,'Carte')]/@Prix-Produit"
+    },
+    {
+        "id": 8,
+        "text": "Obtenir le nom de la wilaya dont l'id du client commence par C ",
+        "query": "//Perssone/Clients/Client[starts-with(@id-Client, 'C')]/Wilaya/text()"
+    },
+    {
+        "id": 9,
+        "text": "Obtenir le noeud qui apparait juste avant Prix-Total dans la deuxieme commande",
+        "query": "/Livraison/Commande[@id-Commande='COM2']/Prix-Total/preceding-sibling::*[1]"
     }
 ]

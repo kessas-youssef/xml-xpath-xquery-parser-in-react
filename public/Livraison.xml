@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Livraison SYSTEM "Livraison.dtd"> 
+
+<?xml-model href="Livraison.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
 <Livraison>
 
+  <!-- Les noms des produits offertes Par l'agence de Livraison -->
   <Produits>
 
     <Produit Nom-Produit="Souris LOGITECH" id-Produit="P1" Qte-Stocke="25" Prix-Produit="3900" />
@@ -11,8 +16,10 @@
     <Produit Nom-Produit="Processeur AMD Ryzen 3200g" id-Produit="P6" Qte-Stocke="25" Prix-Produit="25000" />
     <Produit Nom-Produit="Disque dur SSD 500 GO " id-Produit="P7" Qte-Stocke="28" Prix-Produit="16000" />
     <Produit Nom-Produit="RAM DDR4 8GO" id-Produit="P8" Qte-Stocke="30" Prix-Produit="12000" />
-  </Produits>
 
+  </Produits>
+  
+  <!--La Commande du client avec ces informations perssonels + les produits achetes-->
   <Commande id-Commande="COM1">
 
 
@@ -29,7 +36,7 @@
 
     <Produits-Achete>
 
-      <Quantite-Achete id-Produit="P1">2</Quantite-Achete>
+      <Quantite-Achete id-Produit="P1" Nom-Produit="Souris Logitech">2</Quantite-Achete>
       <Quantite-Achete id-Produit="P6">1</Quantite-Achete>
       <Quantite-Achete id-Produit="P7">3</Quantite-Achete>
       <Quantite-Achete id-Produit="P5">1</Quantite-Achete>
@@ -40,7 +47,7 @@
 	              09-01-22
     </DateDeCommande>
 
-    <Prix-Total>480800 DA</Prix-Total>
+    <Prix-Total>480800 </Prix-Total>
 
   </Commande>
 
@@ -61,7 +68,7 @@
 
       <Quantite-Achete id-Produit="P2">1</Quantite-Achete>
       <Quantite-Achete id-Produit="P8">2</Quantite-Achete>
-      <Quantite-Achete id-Produit="P4">3</Quantite-Achete>
+      <Quantite-Achete id-Produit="P4" Nom-Produit="Carte Mere B200">3</Quantite-Achete>
 
     </Produits-Achete>
 
@@ -69,10 +76,12 @@
                   01-02-23
     </DateDeCommande>
 
-    <Prix-Total>40000 DA</Prix-Total>
+    <Prix-Total>40000 </Prix-Total>
+     
 
   </Commande>
 
+  <!-- Informations sur Le staff de l'agence de Livraison + les clients -->
   <Perssone>
     <equipage>
       <Gerant>
@@ -122,6 +131,7 @@
 
   </Perssone>
 
+  <!--Le bon de livraison pour le client et indication du type de payage-->
   <Bon-Livraison id-Client="C1" NomClient="Merouane" PrenomClient="Bendahmane">
     <Payage type="Eddahabia" />
 
@@ -129,7 +139,7 @@
   </Bon-Livraison>
 
   <Bon-Livraison id-Client="C2" NomClient="Benchouk">
-    <Payage type="Maina Main" />
+    <Payage type="Main-A-Main" />
 
 
   </Bon-Livraison>

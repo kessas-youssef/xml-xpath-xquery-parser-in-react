@@ -1,4 +1,3 @@
-
 <!ELEMENT Livraison (Produits,Commande+,Perssone,Bon-Livraison+)>
 <!ELEMENT Produits (Produit+)>
 <!ELEMENT Produit (#PCDATA)>
@@ -24,7 +23,8 @@
 
 <!ELEMENT Produits-Achete (Quantite-Achete+)> 
 <!ELEMENT Quantite-Achete (#PCDATA)>
-<!ATTLIST Quantite-Achete id-Produit IDREF #REQUIRED>
+<!ATTLIST Quantite-Achete id-Produit IDREF #REQUIRED
+                          Nom-Produit CDATA #IMPLIED>
 
 
 <!ELEMENT DateDeCommande (#PCDATA)>
@@ -51,10 +51,10 @@
 <!ELEMENT Client (Nom,Prenom,Tel,Pays,Wilaya,Address)>
 <!ATTLIST Client id-Client  IDREF #REQUIRED>
 
-<!ELEMENT Bon-Livraison (Payage+)>
+<!ELEMENT Bon-Livraison (Payage)>
 <!ATTLIST Bon-Livraison id-Client  IDREF #REQUIRED
 						NomClient  CDATA #REQUIRED
 						PrenomClient  CDATA #IMPLIED>
 
 <!ELEMENT Payage (#PCDATA)>
-<!ATTLIST Payage type  CDATA #REQUIRED>
+<!ATTLIST Payage type  ( Eddahabia | Main-A-Main )  "Eddahabia" >
